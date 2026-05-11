@@ -1,0 +1,7 @@
+data/ 
+__pycache__/ 
+*.gz 
+AppData/ 
+.ipython/ 
+.vscode/ 
+.ipynb_checkpoints/ 
