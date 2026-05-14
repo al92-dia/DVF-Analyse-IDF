@@ -1,27 +1,42 @@
-## Projet de Data analyst de Al Ousseynou Diallo
-# Analyse du marché immobilier en Île-de-France (2024)
+#  Analyse du Marché Immobilier en Île-de-France (DVF 2021-2025)
 
-## À propos du projet
-Analyse complète de 127 466 transactions immobilières DVF (Demandes de Valeurs Foncières)
-en Île-de-France sur l'année 2024. Données officielles issues de data.gouv.fr.
+##  Description
+Analyse complète du marché immobilier francilien à partir des données officielles
+des Demandes de Valeurs Foncières (DVF) publiées par la DGFiP.
 
-## Structure du projet
-| Notebook | Description |
-|----------|-------------|
-| `DVF_Analyse.ipynb` | Collecte et préparation des données (8 départements IDF) |
-| `DVF EDA.ipynb` | Analyse exploratoire — prix, saisonnalité, surface, outliers |
-| `DVF Modelisation.ipynb` | Modélisation XGBoost — prédiction du prix au m² |
+**Question centrale :** Comment ont évolué les prix au m² dans les 8 départements
+d'Île-de-France entre 2021 et 2025 ?
 
-## Résultats clés
-- Paris : **9 800 €/m²** en médian — 3x plus cher que la Seine-et-Marne (3 107 €/m²)
-- Juillet est le mois record avec **14 449 transactions** (+70% vs août)
-- Les studios (< 30m²) coûtent **2,4x plus cher** au m² que les grands appartements
-- Modèle XGBoost : R² = **0.549** — la localisation est la variable la plus prédictive (SHAP)
+##  Source des données
+- **DVF** — data.gouv.fr (Ministère de l'Économie)
+- **Périmètre :** 8 départements IDF (75, 77, 78, 91, 92, 93, 94, 95)
+- **Volume :** ~834 000 transactions (Appartements et Maisons)
+- **Période :** 2021 → 2025
 
-## Stack technique
-- Python · pandas · matplotlib · scikit-learn · XGBoost · SHAP · Folium
-- Données : [DVF data.gouv.fr](https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/)
+##  Stack technique
+| Outil | Usage |
+|-------|-------|
+| Python / pandas | Nettoyage et traitement des données |
+| PostgreSQL | Stockage et requêtes analytiques |
+| SQLAlchemy | Connexion Python → PostgreSQL |
+| Power BI | Dashboard interactif |
+| DBeaver | Administration base de données |
 
-## Auteur
-**Al Ousseynou Diallo** — Data Analyst · Île-de-France 2026
-### alousseynoudiallo92@gmail.com
+##  Dashboard Power BI
+**Page 1 — Vue générale**
+- KPIs : nombre de ventes, prix médian, prix moyen
+- Carte géographique IDF par département
+- Graphique à barres et anneau par département
+- Slicer interactif par département
+
+**Page 2 — Évolution des prix**
+- Courbe d'évolution 2021-2025 par département
+- Tableau comparatif des prix médians par année
+- Slicer interactif par département
+
+##  Principaux résultats
+- **Paris (75)** : baisse de 10 968 → 9 833 €/m² (-10,3%)
+- **Hauts-de-Seine (92)** : baisse de 7 281 → 6 634 €/m² (-8,9%)
+- **Val-de-Marne (94)** : baisse de 5 232 → 4 925 €/m² (-5,9%)
+- Tous les départements IDF ont baissé suite à la hausse des taux (2022-2023)
+
